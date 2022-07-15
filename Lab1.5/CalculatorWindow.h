@@ -29,5 +29,10 @@ private:
 	wxButton* buttonNeg;
 	wxButton* buttonDvd;
 	wxButton* buttonDec;
+
+	void OnButtonClicked(wxCommandEvent& evt);
+
+	wxDECLARE_EVENT_TABLE();
+
 };
 
