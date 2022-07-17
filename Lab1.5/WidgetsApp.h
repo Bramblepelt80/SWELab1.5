@@ -4,8 +4,8 @@
 
 class WidgetsApp : public wxApp
 {
-	CalculatorWindow* window = nullptr;
 public:
+	CalculatorWindow* window = nullptr;
 	virtual bool OnInit();
 };
 
