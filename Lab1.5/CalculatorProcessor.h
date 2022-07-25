@@ -1,28 +1,103 @@
 #pragma once
 #include <string>
+#include <vector>
+#include "IBaseCommand.h"
+#include "AddCommand.h"
+#include "SubtractCommand.h"
+#include "MultiplyCommand.h"
+#include "DivideCommand.h"
+#include "ModCommand.h"
 class CalculatorProcessor
 {
 private:
-	CalculatorProcessor() {}
+	CalculatorProcessor();
 	static CalculatorProcessor* _processor;
-	int baseNumber;
-	std::string textBoxInput;
+	int baseNumber = 0;
+	int _num1 = 0;
+	int _num2 = 0;
+	int operation = -1;
+	std::vector<IBaseCommand*> commands;
 public:
-	static CalculatorProcessor* GetInstance()
-	{
+	static CalculatorProcessor* GetInstance();
+	/*{
 		if (_processor == nullptr)
 			_processor = new CalculatorProcessor();
 		return _processor;
-	}
+	}*/
 
 	void SetBaseNumber(int num)
 	{
 		baseNumber = num;
 	}
 
-	void GetTextBoxInput(std::string input)
+	void SetNumber1(int num)
 	{
-		textBoxInput = input;
+		_num1 = num;
+	}
+
+	void SetNumber2(int num)
+	{
+		_num2 = num;
+	}
+
+	void SetOperation(int num)
+	{
+		switch (num)
+		{
+		case 0:
+			operation = 0;
+			break;
+		case 1:
+			operation = 1;
+			break;
+		case 2:
+			operation = 2;
+			break;
+		case 3:
+			operation = 3;
+			break;
+		case 4:
+			operation = 4;
+			break;
+		}
+	}
+
+	int ExecuteCommand()
+	{
+		int result = 0;
+		AddCommand* add;
+		SubtractCommand* sub;
+		MultiplyCommand* mlt;
+		DivideCommand* dvd;
+		ModCommand* mod;
+		switch (operation)
+		{
+		case 0:
+			add = new AddCommand(_num1, _num2);
+			commands.push_back(add);
+			break;
+		case 1:
+			sub = new SubtractCommand(_num1, _num2);
+			commands.push_back(sub);
+			break;
+		case 2:
+			mlt = new MultiplyCommand(_num1, _num2);
+			commands.push_back(mlt);
+			break;
+		case 3:
+			dvd = new DivideCommand(_num1, _num2);
+			commands.push_back(dvd);
+			break;
+		case 4:
+			mod = new ModCommand(_num1, _num2);
+			commands.push_back(mod);
+			break;
+		}
+		for (int i = 0; i < commands.size(); i++)
+		{
+			result = commands[i]->Execute();
+		}
+		return result;
 	}
 
 	CalculatorProcessor(CalculatorProcessor& other) = delete;
@@ -75,31 +150,6 @@ public:
 		results = "0x" + results;
 
 		return results;
-	}
-
-	int Add(int num1, int num2)
-	{
-		return num1 + num2;
-	}
-
-	int Subtract(int num1, int num2)
-	{
-		return num1 - num2;
-	}
-
-	int Multiply(int num1, int num2)
-	{
-		return num1 * num2;
-	}
-
-	int Divide(int num1, int num2)
-	{
-		return num1 / num2;
-	}
-
-	int Mod(int num1, int num2)
-	{
-		return num1 % num2;
 	}
 };
 

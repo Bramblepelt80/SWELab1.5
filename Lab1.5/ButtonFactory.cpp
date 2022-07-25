@@ -11,12 +11,12 @@ void ButtonFactory::CreateButtons(CalculatorWindow* parent)
 	button1 = new wxButton(parent, 101, "1", wxPoint(10, 120), wxSize(100, 100));
 	button2 = new wxButton(parent, 102, "2", wxPoint(120, 120), wxSize(100, 100));
 	button3 = new wxButton(parent, 103, "3", wxPoint(230, 120), wxSize(100, 100));
-	buttonPls = new wxButton(parent, 111, "+", wxPoint(340, 120), wxSize(100, 100));
+	buttonAdd = new wxButton(parent, 111, "+", wxPoint(340, 120), wxSize(100, 100));
 	buttonMod = new wxButton(parent, 115, "mod", wxPoint(450, 120), wxSize(100, 100));
 	button4 = new wxButton(parent, 104, "4", wxPoint(10, 230), wxSize(100, 100));
 	button5 = new wxButton(parent, 105, "5", wxPoint(120, 230), wxSize(100, 100));
 	button6 = new wxButton(parent, 106, "6", wxPoint(230, 230), wxSize(100, 100));
-	buttonMns = new wxButton(parent, 112, "-", wxPoint(340, 230), wxSize(100, 100));
+	buttonSub = new wxButton(parent, 112, "-", wxPoint(340, 230), wxSize(100, 100));
 	buttonBin = new wxButton(parent, 116, "bin", wxPoint(450, 230), wxSize(100, 100));
 	button7 = new wxButton(parent, 107, "7", wxPoint(10, 340), wxSize(100, 100));
 	button8 = new wxButton(parent, 108, "8", wxPoint(120, 340), wxSize(100, 100));

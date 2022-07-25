@@ -10,12 +10,12 @@ private:
 	wxButton* button1;
 	wxButton* button2;
 	wxButton* button3;
-	wxButton* buttonPls;
+	wxButton* buttonAdd;
 	wxButton* buttonMod;
 	wxButton* button4;
 	wxButton* button5;
 	wxButton* button6;
-	wxButton* buttonMns;
+	wxButton* buttonSub;
 	wxButton* buttonBin;
 	wxButton* button7;
 	wxButton* button8;
